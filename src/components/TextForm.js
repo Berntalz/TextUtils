@@ -49,14 +49,14 @@ export default function TextForm(props) {
                     ></textarea>
                 </div>
                 <div>
-                    <button className='btn btn-primary mx-1' onClick={handleUpper}>Convert to Uppercase</button>
-                    <button className='btn btn-primary mx-1' onClick={handleLower}>Convert to LowerCase</button>
-                    <button className='btn btn-primary mx-1' onClick={clearText}>Clear Text</button>
-                    <button className='btn btn-primary mx-1' onClick={handleCopy}>Copy to Clipboard</button>
+                    <button className='btn btn-primary mx-1 my-1' onClick={handleUpper}>Convert to Uppercase</button>
+                    <button className='btn btn-primary mx-1 my-1' onClick={handleLower}>Convert to LowerCase</button>
+                    <button className='btn btn-primary mx-1 my-1' onClick={clearText}>Clear Text</button>
+                    <button className='btn btn-primary mx-1 my-1' onClick={handleCopy}>Copy to Clipboard</button>
                 </div>
                 <div>
                     <h2 className='mt-3'>Your text summary</h2>
-                    <p>{text.split(" ").length} words and {text.length} characters</p>
+                    <p>{text.split(" ").filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
                     <p>{0.008 * text.split(" ").length} Minutes to read</p>
                 </div>
                 <div>
