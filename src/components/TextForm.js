@@ -49,19 +49,19 @@ export default function TextForm(props) {
                     ></textarea>
                 </div>
                 <div>
-                    <button className='btn btn-primary mx-1 my-1' onClick={handleUpper}>Convert to Uppercase</button>
-                    <button className='btn btn-primary mx-1 my-1' onClick={handleLower}>Convert to LowerCase</button>
-                    <button className='btn btn-primary mx-1 my-1' onClick={clearText}>Clear Text</button>
-                    <button className='btn btn-primary mx-1 my-1' onClick={handleCopy}>Copy to Clipboard</button>
+                    <button disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={handleUpper}>Convert to Uppercase</button>
+                    <button disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={handleLower}>Convert to LowerCase</button>
+                    <button disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={clearText}>Clear Text</button>
+                    <button disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={handleCopy}>Copy to Clipboard</button>
                 </div>
                 <div>
                     <h2 className='mt-3'>Your text summary</h2>
-                    <p>{text.split(" ").filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
-                    <p>{0.008 * text.split(" ").length} Minutes to read</p>
+                    <p>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
+                    <p>{0.008 * text.split(/\s+/).length} Minutes to read</p>
                 </div>
                 <div>
                     <h2 className='mt-3'>Preview</h2>
-                    <p>{text.length > 0 ? text : 'Your text will be shown here'}</p>
+                    <p>{text.length > 0 ? text : 'Nothing to preview'}</p>
                 </div>
             </div>
         </>
